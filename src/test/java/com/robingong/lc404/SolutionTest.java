@@ -1,6 +1,7 @@
 package com.robingong.lc404;
 
 import com.robingong.common.TreeNode;
+import com.robingong.common.TreeNodeUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +23,7 @@ public class SolutionTest {
         root.left = new TreeNode(9);
         Assert.assertEquals(9, solution.sumOfLeftLeaves(root));
 
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
+        root = TreeNodeUtil.build(3, 9, 20, null, null, 15, 7);
         Assert.assertEquals(24, solution.sumOfLeftLeaves(root));
     }
 

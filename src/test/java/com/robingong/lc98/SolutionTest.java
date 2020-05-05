@@ -1,6 +1,7 @@
 package com.robingong.lc98;
 
 import com.robingong.common.TreeNode;
+import com.robingong.common.TreeNodeUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,16 +17,10 @@ public class SolutionTest {
 
     @Test
     public void isValidBST() {
-        TreeNode root = new TreeNode(2);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(3);
+        TreeNode root = TreeNodeUtil.build(2, 1, 3);
         Assert.assertTrue(solution.isValidBST(root));
 
-        root = new TreeNode(5);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(4);
-        root.right.left = new TreeNode(3);
-        root.right.right = new TreeNode(6);
+        root = TreeNodeUtil.build(5, 1, 4, null, null, 3, 6);
         Assert.assertFalse(solution.isValidBST(root));
     }
 
@@ -36,8 +31,7 @@ public class SolutionTest {
 
     @Test
     public void equalCase() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(1);
+        TreeNode root = TreeNodeUtil.build(1, 1);
         Assert.assertFalse(solution.isValidBST(root));
     }
 }
